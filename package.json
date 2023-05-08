@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "fix": "cp Artifact.cjs.fix node_modules/packemon/cjs/Artifact.cjs"
+  },
+  "dependencies": {
+    "packemon": "^3.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

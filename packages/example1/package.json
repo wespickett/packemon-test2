@@ -1,0 +1,63 @@
+{
+  "name": "packemon-test2",
+  "version": "1.0.0",
+  "description": "",
+  "packemon": [
+    {
+      "format": "lib",
+      "platform": "native",
+      "inputs": {
+        "index": "src/node/index.ts"
+      }
+    },
+    {
+      "format": "lib",
+      "platform": "node",
+      "inputs": {
+        "otherweb": "src/node/web.tsx"
+      }
+    },
+    {
+      "format": [
+        "esm"
+      ],
+      "platform": "browser",
+      "inputs": {
+        "web": "src/browser/index.tsx"
+      }
+    }
+  ],
+  "main": "./lib/native/index.js",
+  "scripts": {
+    "build": "packemon build --addExports --no-addFiles --declaration --quiet --loadConfigs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "types": "./lib/node/index.d.ts",
+  "module": "./esm/web.js",
+  "exports": {
+    "./package.json": "./package.json",
+    "./otherweb": {
+      "node": {
+        "types": "./lib/node/web.d.ts",
+        "default": "./lib/node/node/web.js"
+      },
+      "default": "./lib/node/node/web.js"
+    },
+    "./web": {
+      "browser": {
+        "types": "./esm/browser/index.d.ts",
+        "module": "./esm/web.js",
+        "import": "./esm/web.js"
+      }
+    },
+    ".": {
+      "react-native": {
+        "types": "./lib/node/index.d.ts",
+        "default": "./lib/native/index.js"
+      },
+      "default": "./lib/native/index.js"
+    }
+  }
+}
